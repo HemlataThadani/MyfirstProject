@@ -1,0 +1,37 @@
+ import networkx as nx
+ import matplotlib.pyplot as pyplot
+ import seaborn as sns
+ import numpy as np
+ import random
+ #we will need this for colors
+ import natplotlib.colors as mcolors
+ from matplotlib.colors import Listedcolormap, BoundaryNorm
+ edges= [('A','B'),('A','C'),('B','C'),('B','D'),('C','E'),('D','E'),('D','F'),('E','F'),('E','G')('F','G'),('F','H')]
+G2=nx.from_edgelist(edges)
+#Visualize the graph
+plt.figure(figsize=(3,3),dpi=150)
+nx.draw(G2, with_labels+True, node_color='lightblue, node_size=1000')
+plt.show()
+#Example of adjancy list
+adj_list= {
+ 'A': ['B','C'],
+ 'B':['A','C','D'],
+ 'C':['A','B','E'],
+ 'D':['B','E','F'],
+ 'E':['C','D','F','G'],
+ 'F':['D','E','G','H'],
+ 'G':['E','F','H'],
+ 'H':['F','G']
+}
+#Create the Graph
+graph = nx.from_dict_of_lists(adj_list)
+#Print the nodes and edges of the graph
+print("Nodes:",graph.nodes())
+print("edges:",graph.edges())
+#Visualize the graph
+plt.figure(figsize=(3,3), dpi=150)
+nx.draw(graph,with_labels=True, node_color='ligghtblue',node_size=1000)
+plt.show()
+
+
+
